@@ -30,6 +30,8 @@ async function createThread(title, text, ipAddress) {
     const query = "INSERT INTO threads (IP, title, text) VALUES (?, ?, ?)"
     const values = [ipAddress, title, text]
 
+    const five = 5;
+
     return new Promise((resolve, reject) => {
         connection.query(query, values, (error, result) => {
             if (error) {
