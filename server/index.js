@@ -16,6 +16,8 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
+//if you see this, we are golden
+
 async function Test(){ 
     connection.query('show tables', (error, results, fields) => {
         if (error) {
@@ -29,8 +31,6 @@ async function Test(){
 async function createThread(title, text, ipAddress) {
     const query = "INSERT INTO threads (IP, title, text) VALUES (?, ?, ?)"
     const values = [ipAddress, title, text]
-
-    const five = 5;
 
     return new Promise((resolve, reject) => {
         connection.query(query, values, (error, result) => {
